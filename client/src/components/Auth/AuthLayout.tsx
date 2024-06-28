@@ -57,30 +57,31 @@ function AuthLayout({
   return (
     <div className="relative flex min-h-screen flex-col bg-white dark:bg-gray-900">
       <BlinkAnimation active={isFetching}>
-        <div className="mt-12 h-24 w-full bg-cover">
-          <img src="/assets/logo.svg" className="h-full w-full object-contain" alt="Logo" />
+        <div className="flex flex-grow">
+          <div className="flex flex-1 items-center justify-center bg-cover">
+            <img src="/assets/logo.svg" className="h-full w-full object-contain" alt="Logo" />
+          </div>
+          <div className="flex flex-1 items-center justify-center">
+            <div className="w-authPageWidth overflow-hidden bg-white px-6 py-4 dark:bg-gray-900 sm:max-w-md sm:rounded-lg">
+              {!startupConfigError && !isFetching && (
+                <h1
+                  className="mb-4 text-center text-3xl font-semibold text-black dark:text-white"
+                  style={{ userSelect: 'none' }}
+                >
+                  {header}
+                </h1>
+              )}
+              <DisplayError />
+              {children}
+              {(pathname.includes('login') || pathname.includes('register')) && (
+                <SocialLoginRender startupConfig={startupConfig} />
+              )}
+            </div>
+          </div>
         </div>
       </BlinkAnimation>
-      <DisplayError />
       <div className="absolute bottom-0 left-0 md:m-4">
         <ThemeSelector />
-      </div>
-
-      <div className="flex flex-grow items-center justify-center">
-        <div className="w-authPageWidth overflow-hidden bg-white px-6 py-4 dark:bg-gray-900 sm:max-w-md sm:rounded-lg">
-          {!startupConfigError && !isFetching && (
-            <h1
-              className="mb-4 text-center text-3xl font-semibold text-black dark:text-white"
-              style={{ userSelect: 'none' }}
-            >
-              {header}
-            </h1>
-          )}
-          {children}
-          {(pathname.includes('login') || pathname.includes('register')) && (
-            <SocialLoginRender startupConfig={startupConfig} />
-          )}
-        </div>
       </div>
       <Footer startupConfig={startupConfig} />
     </div>
