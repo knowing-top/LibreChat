@@ -11,7 +11,7 @@ services:
     depends_on:
       - mongodb
       - rag_api
-    image: ghcr.io/danny-avila/librechat-dev:latest
+    image: registry.cn-beijing.aliyuncs.com/knowing_ai/librechat:latest
     restart: always
     user: "${UID}:${GID}"
     extra_hosts:
