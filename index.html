@@ -1,17 +1,14 @@
-<!-- v0.7.3 -->
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
     <meta name="theme-color" content="#171717">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>LibreChat</title>
-    <link
-      rel="shortcut icon"
-      href="#"
-    />
+    <meta name="msapplication-navbutton-color" content="#171717">
+    <meta name="msapplication-TileColor" content="#171717">
+    <title>Knowing.AI</title>
     <link
       rel="icon"
       type="image/png"
@@ -35,15 +32,16 @@
     <script
       defer
       type="module"
-      src="/client/src/main.jsx"
+      src="/src/main.jsx"
     ></script>
+    <style>
+      /* Fallback for browsers that do not support theme-color */
+      body {
+        background-color: #171717;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
-
-    <script
-      type="module"
-      src="/client/src/main.jsx"
-    ></script>
   </body>
 </html>

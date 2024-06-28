@@ -12,9 +12,9 @@
     </clipPath>
   </defs>
   <g clip-path="url(#clip-阅读资料-2)" id="阅读资料-2">
-    <rect fill="#fff" height="1024" width="1024"></rect>
+    <!-- <rect fill="#fff" height="1024" width="1024"></rect> -->
     <g style="isolation: isolate" clip-path="url(#clip-path)" id="阅读资料-3">
-      <rect style="isolation: isolate" fill="#fff" height="1024" width="1024" id="阅读资料-4"></rect>
+      <!-- <rect style="isolation: isolate" fill="#fff" height="1024" width="1024" id="阅读资料-4"></rect> -->
       <path style="isolation: isolate" fill="#f2f6fe" transform="translate(45 266.438)" d="M11.3,80.291C49.133-45.948,201.64,14.434,241.366,14.434S820.235,18,844.827,119.68s132.42,158.76,69.993,233.681S842.935,472.879,772.941,503.2,729.43,631.64,502.424,608.45s-168.362-69.57-251.6-78.489S38.951,599.531,35.168,513.906s8.72-88.516,8.145-146.829S-26.537,206.532,11.3,80.291Z" id="路径_1166"></path>
       <path style="isolation: isolate" fill="#d1e6ff" transform="translate(815.964 135.615)" d="M17.425,37.925V23.576H3.075a3.075,3.075,0,0,1,0-6.151h14.35V3.075a3.075,3.075,0,1,1,6.15,0v14.35h14.35a3.075,3.075,0,0,1,0,6.151H23.575v14.35a3.075,3.075,0,1,1-6.15,0Z" id="联合_163"></path>
       <path style="isolation: isolate" fill="#e2efff" transform="translate(883.746 234.439)" d="M9.291,32A9.292,9.292,0,0,1,5.137,14.4Q5.1,13.914,5.1,13.42A13.244,13.244,0,0,1,30.5,7.978a7.048,7.048,0,0,1,3.177-.752,7.171,7.171,0,0,1,7.07,6.194A9.29,9.29,0,0,1,40.709,32Z" id="联合_164"></path>
