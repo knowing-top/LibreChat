@@ -16,6 +16,33 @@ const ErrorRender = ({ children }: { children: React.ReactNode }) => (
   </div>
 );
 
+const DisplayError = ({
+  startupConfigError,
+  error,
+  localize,
+}: {
+  startupConfigError: unknown | null | undefined;
+  error: string | null;
+  localize: (key: string) => string;
+}) => {
+  if (startupConfigError) {
+    return <ErrorRender>{localize('com_auth_error_login_server')}</ErrorRender>;
+  } else if (error === 'com_auth_error_invalid_reset_token') {
+    return (
+      <ErrorRender>
+        {localize('com_auth_error_invalid_reset_token')}{' '}
+        <a className="font-semibold text-green-600 hover:underline" href="/forgot-password">
+          {localize('com_auth_click_here')}
+        </a>{' '}
+        {localize('com_auth_to_try_again')}
+      </ErrorRender>
+    );
+  } else if (error) {
+    return <ErrorRender>{localize(error)}</ErrorRender>;
+  }
+  return null;
+};
+
 function AuthLayout({
   children,
   header,
@@ -35,34 +62,15 @@ function AuthLayout({
 }) {
   const localize = useLocalize();
 
-  const DisplayError = () => {
-    if (startupConfigError !== null && startupConfigError !== undefined) {
-      return <ErrorRender>{localize('com_auth_error_login_server')}</ErrorRender>;
-    } else if (error === 'com_auth_error_invalid_reset_token') {
-      return (
-        <ErrorRender>
-          {localize('com_auth_error_invalid_reset_token')}{' '}
-          <a className="font-semibold text-green-600 hover:underline" href="/forgot-password">
-            {localize('com_auth_click_here')}
-          </a>{' '}
-          {localize('com_auth_to_try_again')}
-        </ErrorRender>
-      );
-    } else if (error) {
-      return <ErrorRender>{localize(error)}</ErrorRender>;
-    }
-    return null;
-  };
-
   return (
     <div className="relative flex min-h-screen flex-col bg-white dark:bg-gray-900">
       <BlinkAnimation active={isFetching}>
-        <div className="flex flex-grow">
-          <div className="flex flex-1 items-center justify-center bg-cover">
+        <div className="flex flex-grow w-full">
+          <div className="hidden md:flex md:flex-1 items-center justify-center bg-cover">
             <img src="/assets/logo.svg" className="h-full w-full object-contain" alt="Logo" />
           </div>
           <div className="flex flex-1 items-center justify-center">
-            <div className="w-authPageWidth overflow-hidden bg-white px-6 py-4 dark:bg-gray-900 sm:max-w-md sm:rounded-lg">
+            <div className="w-full max-w-md px-6 py-4 overflow-hidden bg-white sm:rounded-lg dark:bg-gray-900">
               {!startupConfigError && !isFetching && (
                 <h1
                   className="mb-4 text-center text-3xl font-semibold text-black dark:text-white"
@@ -71,7 +79,7 @@ function AuthLayout({
                   {header}
                 </h1>
               )}
-              <DisplayError />
+              <DisplayError startupConfigError={startupConfigError} error={error} localize={localize} />
               {children}
               {(pathname.includes('login') || pathname.includes('register')) && (
                 <SocialLoginRender startupConfig={startupConfig} />
